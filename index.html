@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript">+function (a, p, P, b, y) {
+                a.braze = {}; a.brazeQueue = []; for (var s = "BrazeSdkMetadata DeviceProperties Card Card.prototype.dismissCard Card.prototype.removeAllSubscriptions Card.prototype.removeSubscription Card.prototype.subscribeToClickedEvent Card.prototype.subscribeToDismissedEvent Card.fromContentCardsJson Banner CaptionedImage ClassicCard ControlCard ContentCards ContentCards.prototype.getUnviewedCardCount Feed Feed.prototype.getUnreadCardCount ControlMessage InAppMessage InAppMessage.SlideFrom InAppMessage.ClickAction InAppMessage.DismissType InAppMessage.OpenTarget InAppMessage.ImageStyle InAppMessage.Orientation InAppMessage.TextAlignment InAppMessage.CropType InAppMessage.prototype.closeMessage InAppMessage.prototype.removeAllSubscriptions InAppMessage.prototype.removeSubscription InAppMessage.prototype.subscribeToClickedEvent InAppMessage.prototype.subscribeToDismissedEvent InAppMessage.fromJson FullScreenMessage ModalMessage HtmlMessage SlideUpMessage User User.Genders User.NotificationSubscriptionTypes User.prototype.addAlias User.prototype.addToCustomAttributeArray User.prototype.addToSubscriptionGroup User.prototype.getUserId User.prototype.incrementCustomUserAttribute User.prototype.removeFromCustomAttributeArray User.prototype.removeFromSubscriptionGroup User.prototype.setCountry User.prototype.setCustomLocationAttribute User.prototype.setCustomUserAttribute User.prototype.setDateOfBirth User.prototype.setEmail User.prototype.setEmailNotificationSubscriptionType User.prototype.setFirstName User.prototype.setGender User.prototype.setHomeCity User.prototype.setLanguage User.prototype.setLastKnownLocation User.prototype.setLastName User.prototype.setPhoneNumber User.prototype.setPushNotificationSubscriptionType InAppMessageButton InAppMessageButton.prototype.removeAllSubscriptions InAppMessageButton.prototype.removeSubscription InAppMessageButton.prototype.subscribeToClickedEvent automaticallyShowInAppMessages destroyFeed hideContentCards showContentCards showFeed showInAppMessage toggleContentCards toggleFeed changeUser destroy getDeviceId initialize isPushBlocked isPushPermissionGranted isPushSupported logCardClick logCardDismissal logCardImpressions logContentCardImpressions logContentCardsDisplayed logCustomEvent logFeedDisplayed logInAppMessageButtonClick logInAppMessageClick logInAppMessageHtmlClick logInAppMessageImpression logPurchase openSession requestPushPermission removeAllSubscriptions removeSubscription requestContentCardsRefresh requestFeedRefresh requestImmediateDataFlush enableSDK isDisabled setLogger setSdkAuthenticationSignature addSdkMetadata disableSDK subscribeToContentCardsUpdates subscribeToFeedUpdates subscribeToInAppMessage subscribeToSdkAuthenticationFailures toggleLogging unregisterPush wipeData handleBrazeAction".split(" "), i = 0; i < s.length; i++) { for (var m = s[i], k = a.braze, l = m.split("."), j = 0; j < l.length - 1; j++)k = k[l[j]]; k[l[j]] = (new Function("return function " + m.replace(/\./g, "_") + "(){window.brazeQueue.push(arguments); return true}"))() } window.braze.getCachedContentCards = function () { return new window.braze.ContentCards }; window.braze.getCachedFeed = function () { return new window.braze.Feed }; window.braze.getUser = function () { return new window.braze.User }; (y = p.createElement(P)).type = 'text/javascript';
+                y.src = 'https://js.appboycdn.com/web-sdk/4.2/braze.min.js';
+                y.async = 1; (b = p.getElementsByTagName(P)[0]).parentNode.insertBefore(y, b)
+            }(window, document, 'script');
+
+            // initialize the SDK
+            braze.initialize('c8610a4e-636f-4e3b-87d1-1acd128017a9', {
+                baseUrl: "sdk.iad-03.braze.com",
+                enableLogging: true
+            });
+
+            // optionally show all in-app messages without custom handling
+
+            braze.automaticallyShowInAppMessages();
+
+            // optionally set the current user's External ID
+            //if (isLoggedIn) {
+                //braze.changeUser(userIdentifier);
+            //}
+
+            // if you use Content Cards
+            //braze.subscribeToContentCardsUpdates(function (cards) {
+            // cards have been updated
+            //});
+
+            // Be sure to call `openSession` after `automaticallyShowInAppMessages`
+            braze.openSession();
+            braze.toggleLogging();
+
+            //Segment JS integration
+            !function () {
+                var analytics = window.analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
+                    analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"]; analytics.factory = function (e) { return function () { var t = Array.prototype.slice.call(arguments); t.unshift(e); analytics.push(t); return analytics } }; for (var e = 0; e < analytics.methods.length; e++) { var key = analytics.methods[e]; analytics[key] = analytics.factory(key) } analytics.load = function (key, e) { var t = document.createElement("script"); t.type = "text/javascript"; t.async = !0; t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js"; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(t, n); analytics._loadOptions = e }; analytics._writeKey = "SYImi2ibyBgtICUXyjA6ObprQ8uAfNq0";; analytics.SNIPPET_VERSION = "4.15.3";
+                    analytics.load("SYImi2ibyBgtICUXyjA6ObprQ8uAfNq0");
+                    analytics.page();
+                }
+            }();
+            
+        </script>
+
+        <meta charset="utf-8" />
+        <title>Segment x Braze</title>
+    </head>
+    <body>
+        <h1>Segment x Braze</h1>
+        <br />
+        <a href="https://internal-dashboard-03.braze.com/dashboard/app_usage/app-usage/61a440f3e718d36c46c3c304?locale=en">Link to test Dashboard</a>
+        <br />
+        <hr />
+        <br />
+        <script>braze.getUser().getUserId(function (userId) {
+                document.getElementById("currentUser").innerHTML = ("Current logged user: " + userId);
+                console.log('The user is ' + userId);
+            });</script>
+        <div id="currentUser"></div>
+        <br />
+        <div id="user">
+            <label>User ID:</label>
+            <input type="text" id="change_userid" name="userid" />
+            <button id="submit_userid">Change User</button>
+        </div>
+        <br />
+        <div id="customEventLog">
+            <label>Custom Event: </label>
+            <input type="text" id="add_customevent" />
+            <button id="submit_customevent">Add Custom Event</button>
+        </div>
+        <br />
+        <script type="text/javascript" src="app.js"></script>
+    </body>
+
+    </html>
