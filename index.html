@@ -50,7 +50,7 @@
         <br />
         <hr />
         <br />
-        <script>braze.getUser().getUserId(function (userId) {
+        <script>appboy.getUser().getUserId(function (userId) {
                 document.getElementById("currentUser").innerHTML = ("Current logged user: " + userId);
                 console.log('The user is ' + userId);
             });</script>
