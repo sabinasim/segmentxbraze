@@ -3,7 +3,7 @@
 //change user
 document.getElementById("submit_userid").addEventListener("click", function () {
     userId = document.getElementById("change_userid").value;
-    appboy.changeUser(userId);
+    braze.changeUser(userId);
 
     alert("Submitted " + userId);
     analytics.track('First Visit');
